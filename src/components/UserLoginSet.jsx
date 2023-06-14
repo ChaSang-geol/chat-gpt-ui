@@ -7,9 +7,9 @@ function UserLoginSet( {userid} ) {
     <>
       <div className="row">
         <div className="col-lg-6">
-          <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+          {/* <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info"> */}
             <img src="/static/img/avatar/avatar7.png" alt="avatar" />
-          </a>
+          {/* </a> */}
           <div className="chat-about">
             <h6 className="m-b-0">{ userid }</h6>
             <small>Last : 10:15 AM</small>

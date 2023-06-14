@@ -1,21 +1,24 @@
 // import { useState } from "react";
 // import ReactDOM from "react-dom/client";
 
-function ChatViewPrompt(props) {
+function ChatViewPrompt(prompt, asktime) {
   // const [prompt, setPrompt] = useState(props.prompt);
-console.log(props);
-
-  return (
-    <>
-      <li className="clearfix">
-        <div className="message-data text-right">
-          <span className="message-data-time">10:10 AM, 6/11</span>
-          <img src="/static/img/avatar/avatar7.png" alt="avatar" />
-        </div>
-        <div className="message other-message float-right"> {prompt}</div>
-      </li>
-    </>
-  )
+  console.log(prompt);
+  if (prompt === "" || prompt == null) {
+    return null;
+  } else {
+    return (
+      <>
+        <li className="clearfix">
+          <div className="message-data text-right">
+            <span className="message-data-time">{asktime}</span>
+            <img src="/static/img/avatar/avatar7.png" alt="avatar" />
+          </div>
+          <div className="message other-message float-right"> {prompt}</div>
+        </li>
+      </>
+    );
+  }
 }
 
 // const chat_prompt = ReactDOM.createRoot(document.getElementById('chatroom'));

@@ -26,7 +26,7 @@ function App() {
                                 <li className="clearfix active">
                                     {/* <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar" /> */}
 
-                                    <span><i class="fa fa-comments-o fa-2x" aria-hidden="true">&nbsp;</i></span>
+                                    <span><i className="fa fa-comments-o fa-2x" aria-hidden="true">&nbsp;</i></span>
                                     <div className="about">
                                         <div className="name">Ask Chat GPT</div>
                                         {/* <div className="status"> <i className="fa fa-circle offline"></i> left 7 mins ago </div> */}
@@ -34,16 +34,16 @@ function App() {
                                 </li>
                                 <li className="clearfix">
                                     {/* <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar" /> */}
-                                    {/* <i class="fa fa-bars fa-2x"></i> */}
-                                    <span><i class="fa fa-gear fa-2x" aria-hidden="true">&nbsp;</i></span>
+                                    {/* <i className="fa fa-bars fa-2x"></i> */}
+                                    {/* <span><i className="fa fa-gear fa-2x" aria-hidden="true">&nbsp;</i></span> */}
                                     <div className="about">
-                                        <div className="name">Management</div>
+                                        {/* <div className="name">Management</div> */}
                                         {/* <div className="status"> <i className="fa fa-circle online"></i> online </div> */}
                                     </div>
                                 </li>
                                 <li className="clearfix">
                                     {/* <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar" /> */}
-                                    <span><i class="fa fa-user-circle-o fa-2x" aria-hidden="true">&nbsp;</i></span>
+                                    <span><i className="fa fa-user-circle-o fa-2x" aria-hidden="true">&nbsp;</i></span>
                                     <div className="about">
                                         <div className="name">Users</div>
                                         {/* <div className="status"> <i className="fa fa-circle online"></i> online </div> */}
