@@ -10,7 +10,7 @@ const ChatRoom = () => {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
   const [userid, setUserid] = useState("ia00966");
-  
+
   const initialMessages = {
     id: 0,
     asktime: "",
@@ -27,17 +27,16 @@ const ChatRoom = () => {
   //   fetchCarList()
   // }, [])
 
-  
   function makeMessage(prompt) {
-    count  =count+1 ;
-    return ({
-      id: messages.id+1,
+    count = count + 1;
+    return {
+      id: messages.id + 1,
       asktime: "",
       prompt: prompt,
       restime: "",
-      answer: "답변 입니다. "+count,
-    });
-  };
+      answer: "답변 입니다. " + count,
+    };
+  }
 
   const handleSubmit = useCallback(
     (event) => {
@@ -52,9 +51,9 @@ const ChatRoom = () => {
       console.log(messages);
       // moveScrollToReceiveMessage();
       // sendMessageService.sendmessage(prompt, userid);
-    }, [messages, makeMessage, prompt, userid]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  
+    },
+    [messages, makeMessage, prompt, userid]
+  ); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -63,13 +62,13 @@ const ChatRoom = () => {
         <UserLoginSet userid={userid} />
       </div>
       <div className="chat-history">
-      {messages.map((message, index) => {
-        <ul className="m-b-0" id="chatroom" key={index} >
-          {/* ChatRoom 영역 : 질문에 대한 답변이 오면 질문과 답변을 순서대로 채팅창에 출력하여 보여주는 영역 */}
-          <ChatViewPrompt prompt={message.prompt} asktime={message.asktime} />
-          <ChatViewAnswer answer={message.answer} restime={message.restime} />
-        </ul>
-      })}
+        {messages.map((message, index) => {
+          <ul className="m-b-0" id="chatroom" key={index}>
+            {/* ChatRoom 영역 : 질문에 대한 답변이 오면 질문과 답변을 순서대로 채팅창에 출력하여 보여주는 영역 */}
+            <ChatViewPrompt prompt={message.prompt} asktime={message.asktime} />
+            <ChatViewAnswer answer={message.answer} restime={message.restime} />
+          </ul>;
+        })}
       </div>
       {/* 질문을 입력 */}
       <div className="chat-message clearfix">

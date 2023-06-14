@@ -1,12 +1,10 @@
 // import ReactDOM from "react-dom/client";
 // import { useState, useCallback } from 'react';
 
-
 const ChatViewAnswer = (answer, restime) => {
   // const [prompt, setPrompt] = useState("");
   // const [response, setResponse] = useState("");
   // const [userid, setUserid] = useState("");
-
 
   return (
     <>
@@ -18,6 +16,6 @@ const ChatViewAnswer = (answer, restime) => {
         <div className="message my-message">{answer}</div>
       </li>
     </>
-  )
-}
+  );
+};
 export default ChatViewAnswer;
