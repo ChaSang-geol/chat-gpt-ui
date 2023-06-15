@@ -1,10 +1,9 @@
-import { useState, useCallback, memo } from 'react';
-import sendMessageService from '../service/sendmessage';
+import { memo } from 'react';
+// import sendMessageService from '../service/sendmessage';
 
-const PromptForm=({prompt, handleSubmit, userid}) =>{
+const PromptForm=({handleSubmit, prompt, setPrompt}) =>{
   console.log("child render : PromptForm");
-  const [input_prompt, setPrompt] = useState({prompt});
-
+  
   return (
 
     <div className="chat-message clearfix">
@@ -14,7 +13,7 @@ const PromptForm=({prompt, handleSubmit, userid}) =>{
             <button type="submit" className="btn btn-primary"><i className="fa fa-send"></i></button>
           </div>
           <input type="text" className="form-control"
-            value={input_prompt}
+            value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             placeholder="Enter text here..." />
         </div>

@@ -5,6 +5,7 @@ import UserLoginSet from "./UserLoginSet";
 import ChatViewPrompt from "./ChatViewPrompt";
 import ChatViewAnswer from "./ChatViewAnswer";
 import PromptForm from "./PromptForm";
+import ChatHistory from "./ChatHistory";
 
 const ChatRoom = () => {
   const [prompt, setPrompt] = useState("");
@@ -19,7 +20,7 @@ const ChatRoom = () => {
     answer: "",
   };
   const [messages, setMessages] = useState([]);
-  let count = 0;
+  const [count, setCount] = useState(0);
   // useEffect(() => {
   //   function fetchCarList() {
   //     ...
@@ -28,12 +29,12 @@ const ChatRoom = () => {
   // }, [])
 
   function makeMessage(prompt) {
-    count = count + 1;
+    setCount((c) => c + 1);
     return {
-      id: messages.id + 1,
-      asktime: "",
+      id: count,
+      asktime: "15:00 AM",
       prompt: prompt,
-      restime: "",
+      restime: "15:01 AM",
       answer: "답변 입니다. " + count,
     };
   }
@@ -44,15 +45,15 @@ const ChatRoom = () => {
       console.log(prompt);
       console.log(userid);
 
-      // ChatViewPrompt(prompt);
+      //if (prompt === "" || prompt == null) return null;
       const newMessage = makeMessage(prompt); // makeMessage
       console.log(newMessage);
-      setMessages((messages) => [...messages, newMessage]);
+      setMessages((m) => [...m, newMessage]);
       console.log(messages);
       // moveScrollToReceiveMessage();
       // sendMessageService.sendmessage(prompt, userid);
     },
-    [messages, makeMessage, prompt, userid]
+    [messages]
   ); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -61,16 +62,39 @@ const ChatRoom = () => {
         {/* UserLoginSet 영역 : 상단의 로그인 사용자 표시 */}
         <UserLoginSet userid={userid} />
       </div>
+      {/* ChatRoom 영역 : 질문에 대한 답변이 오면 질문과 답변을 순서대로 채팅창에 출력하여 보여주는 영역 */}
+      {/* <ChatHistory messages={messages} handleSubmit={handleSubmit} /> */}
       <div className="chat-history">
         {messages.map((message, index) => {
-          <ul className="m-b-0" id="chatroom" key={index}>
-            {/* ChatRoom 영역 : 질문에 대한 답변이 오면 질문과 답변을 순서대로 채팅창에 출력하여 보여주는 영역 */}
-            <ChatViewPrompt prompt={message.prompt} asktime={message.asktime} />
-            <ChatViewAnswer answer={message.answer} restime={message.restime} />
-          </ul>;
+          return (
+            <ul className="m-b-0" id="chatroom" key={index}>
+              {/* ChatRoom 영역 : 질문에 대한 답변이 오면 질문과 답변을 순서대로 채팅창에 출력하여 보여주는 영역 */}
+              <li className="clearfix">
+                <div className="message-data text-right">
+                  <span className="message-data-time">{message.asktime}</span>
+                  <img src="/static/img/avatar/avatar7.png" alt="avatar" />
+                </div>
+                <div className="message other-message float-right">
+                  {message.prompt}
+                </div>
+              </li>
+              <li className="clearfix">
+                <div className="message-data">
+                  <img src="/static/img/chatGPT.png" alt="avatar" />
+                  <span className="message-data-time">{message.restime}</span>
+                </div>
+                <div className="message my-message">{message.answer}</div>
+              </li>
+            </ul>
+          );
         })}
       </div>
       {/* 질문을 입력 */}
+      {/* <PromptForm
+        prompt={prompt}
+        setPrompt={setPrompt}
+        handleSubmit={handleSubmit}
+      /> */}
       <div className="chat-message clearfix">
         <form onSubmit={handleSubmit}>
           <div className="input-group mb-0">
