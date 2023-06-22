@@ -102,11 +102,6 @@ const ChatRoom = () => {
       const dayjs = require("dayjs");
       let varasktime = dayjs().format("h:mm A");
       // 질문 결과 받기
-      // let content = {};
-      // content = sendMessageService.sendmessage(prompt, userid);
-      // console.log(sendMessageService.sendmessage(prompt, userid));
-      // console.log("content: ", content);
-
       // let test_data = await sendMessageService.handleSubmitApi(prompt, userid);
 
       const handleSubmitApiCallback = (response) => {

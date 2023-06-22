@@ -1,8 +1,8 @@
 import axios from "axios";
-// import { useState } from 'react';
+import config from '../config';
 
-// import PromptForm, { prompt } from '../components/PromptForm';
-const API_URL = "http://localhost:8080";
+const { API_URL } = config;
+// const API_URL = "http://localhost:8080";
 // SSO 로그인 처리
 const sso = () => {
   return {};
@@ -14,7 +14,7 @@ const sendmessage = (prompt, userid) => {
   let resdata = { restime: "", answer: "" };
 
   axios
-    .post(API_URL + "/api/v1/chattest", {
+    .post(${API_URL} + "/api/v1/chattest", {
       prompt: prompt,
       userid: userid,
     })
@@ -43,7 +43,7 @@ const handleSubmitApi = async ({prompt, userid, callback}) => {
   const dayjs = require("dayjs");
   let resdata = { restime: "", answer: "" };
   try {
-    const response = await axios.post(API_URL + "/api/v1/chattest", {
+    const response = await axios.post(${API_URL} + "/api/v1/chattest", {
       prompt: prompt,
       userid: userid,
     });
