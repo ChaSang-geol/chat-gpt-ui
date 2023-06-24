@@ -7,58 +7,17 @@ import UserLoginSet from "./UserLoginSet";
 // import PromptForm from "./PromptForm";
 // import ChatHistory from "./ChatHistory";
 // import { handleSubmitApiCallback } from "../service/chatmessageutil";
-
+import dayjs from "dayjs";
 
 const ChatRoom = () => {
   const [prompt, setPrompt] = useState("");
-  const [response, setResponse] = useState({});
-  const [userid, setUserid] = useState("ia00966");
+  // const [response, setResponse] = useState({});
+  const [userid] = useState("ia00966");
   let newMessage = {};
   const [messages, setMessages] = useState([]);
   const [count, setCount] = useState(0);
   const chatWindow = useRef(null);
-  const [asktime, setAsktime] = useState("")
-
-  // useEffect(() => {
-  //   function fetchCarList() {
-  //     ...
-  //   }
-  //   fetchCarList()
-  // }, [])
-
-
-
-  // function makeMessage(prompt, userid) {
-  //   setCount((count) => count + 1);
-  //   console.log("Count : " + count);
-  //   var now = new Date(); // 현재시간
-  //   var nowTime =
-  //     now.getFullYear() +
-  //     "년" +
-  //     (now.getMonth() + 1) +
-  //     "월" +
-  //     now.getDate() +
-  //     "일" +
-  //     now.getHours() +
-  //     "시" +
-  //     now.getMinutes() +
-  //     "분" +
-  //     now.getSeconds() +
-  //     "초";
-  //   console.log("현재시간 : " + nowTime);
-  //   const dayjs = require("dayjs");
-  //   let varasktime = dayjs().format("h:mm A");
-  //   setResponse(sendMessageService.sendmessage(prompt, userid));
-  //   let varrestime = dayjs().format("h:mm A");
-
-  //   return {
-  //     id: count,
-  //     asktime: varasktime,
-  //     prompt: prompt,
-  //     restime: varrestime,
-  //     answer: response,
-  //   };
-  // }
+  let varasktime = dayjs().format("h:mm A");
 
   const onChange = (e) => {
     setPrompt(e.target.value);
@@ -73,10 +32,7 @@ const ChatRoom = () => {
         alert("질문을 입력하여 주십시오!");
         return null;
       }
-      // alert("#1 : " + prompt);
-
-      // setCount((count) => count + 1);
-      // console.log("Count : " + count);
+      // 현재시간을 출력하는 방법
       // var now = new Date(); // 현재시간
       // var nowTime =
       //   now.getFullYear() +
@@ -92,32 +48,30 @@ const ChatRoom = () => {
       //   now.getSeconds() +
       //   "초";
       // console.log("현재시간 : " + nowTime);
-      const dayjs = require("dayjs");
-      // let varasktime = dayjs().format("h:mm A");
-      setAsktime(dayjs().format("h:mm A"));
+
+      varasktime = dayjs().format("h:mm:ss A");
+      setCount((count) => count + 1);
+
       // 질문 결과 받기
       // let test_data = await sendMessageService.handleSubmitApi(prompt, userid);
-
       sendMessageService.handleSubmitApi({
         prompt,
         userid,
-        callback: handleSubmitApiCallback
+        callback: handleSubmitApiCallback,
       });
 
-      moveScrollToReceiveMessage(); // 메시지 응답후 창을 스크롤
-
+      moveScrollToReceiveMessage(); // 메시지 응답후 창을 스크롤하기
+      setPrompt("");
     },
-    [prompt, response]
+    [prompt]
   );
 
   const handleSubmitApiCallback = (response) => {
-    // setResponse(response);
-    setCount((count) => count + 1);
-    // let varrestime = dayjs().format("h:mm A");
+
     if (response) {
       newMessage = {
         id: count,
-        asktime: asktime,
+        asktime: varasktime,
         prompt: prompt,
         restime: response?.restime,
         answer: response?.answer,
@@ -125,16 +79,19 @@ const ChatRoom = () => {
       console.log("newMessage : ", newMessage);
 
       addMessage(newMessage);
-
     }
-
-
   };
 
-  const addMessage = useCallback((newMessage) => {
-    setMessages((messages) => [...messages, newMessage]);
-    console.log("messages : ", messages);
-  },
+  // const addMessage = (newMessage) => {
+  //     setMessages((messages) => [...messages, newMessage]);
+  //     console.log("messages : ", messages);
+  //   };
+  // 화면에 출력할 메시지를 만든다
+  const addMessage = useCallback(
+    (newMessage) => {
+      setMessages((messages) => [...messages, newMessage]);
+      console.log("messages : ", messages);
+    },
     [messages]
   );
 

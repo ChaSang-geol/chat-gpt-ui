@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react';
+import dayjs from 'dayjs';
 
 function UserLoginSet( {userid} ) {
-  // const userid = useState({userid});
+  // const [userid, setUserid] = useState("");
 
   return (
     <>
@@ -12,7 +13,7 @@ function UserLoginSet( {userid} ) {
           {/* </a> */}
           <div className="chat-about">
             <h6 className="m-b-0">{ userid }</h6>
-            <small>Last : 10:15 AM</small>
+            <small>Last : {dayjs().format("h:mm A")}</small>
           </div>
         </div>
         <div className="col-lg-6 hidden-sm text-right">
