@@ -14,7 +14,7 @@ function Home() {
 
     return (
         // <RecoilRoot>
-        <div className="container">
+        <div className="container1">
             <div className="row clearfix">
                 <div className="col-lg-12">
                     <div className="card chat-app">

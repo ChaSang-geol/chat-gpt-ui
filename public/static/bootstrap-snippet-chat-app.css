@@ -3,10 +3,15 @@ body {
     margin-top: 20px;
 }
 
-.container {
-    background-color: #f4f7f6;
-    margin-top: 20px;
+.container1 {
+    /* background-color: #f4f7f6; */
+    margin-top: 0.5rem;
+    /* padding-top: 4.5rem; */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 98%;
 }
+
 .card {
     background: #fff;
     transition: .5s;
@@ -14,7 +19,6 @@ body {
     margin-bottom: 30px;
     border-radius: .55rem;
     position: relative;
-    width: 100%;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
 }
 
@@ -29,7 +33,7 @@ body {
 
 .chat-app .chat {
     margin-left: 280px;
-    border-left: 1px solid #eaeaea
+    border-left: 1px solid #eaeaea;
 }
 
 .people-list {
@@ -43,7 +47,7 @@ body {
 .people-list .lnb-header {
     background: #000000;
     color: #fff;
-    height:3em;
+    height: 3em;
     padding: 0;
     margin: 0;
 }
@@ -110,7 +114,7 @@ body {
 
 .chat .chat-history {
     padding: 20px;
-    border-bottom: 2px solid #fff
+    border-bottom: 2px solid #fff;
 }
 
 .chat .chat-history ul {
@@ -232,7 +236,6 @@ body {
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 465px;
-        width: 100%;
         overflow-x: auto;
         background: #fff;
         left: -400px;
@@ -255,6 +258,10 @@ body {
         height: 300px;
         overflow-x: auto
     }
+
+    .card .chat-app {
+        height: 100%;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -269,6 +276,10 @@ body {
         height: 95%;
         overflow-x: auto
     }
+
+    .card .chat-app {
+        height: 100%;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
@@ -281,6 +292,10 @@ body {
         height: calc(100vh - 350px);
         overflow-x: auto
     }
+
+    .card .chat-app {
+        height: 100%;
+    }
 }
 
 @media screen and (min-width: 1100px) {
@@ -288,16 +303,15 @@ body {
         margin-left: 280px;
         border-left: 1px solid #eaeaea;
         height: 100%;
-        /* width: 100%; */
+
     }
+
     .card .chat-app {
         height: 100%;
-        width: 100%;
-        /* border-left: 1px solid #eaeaea */
     }
 
     .chat-app .chat-history {
-        height: calc(100vh - 220px);
+        height: calc(100vh - 270px);
         overflow-x: auto
     }
 }

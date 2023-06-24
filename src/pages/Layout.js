@@ -1,37 +1,35 @@
 import { Outlet, Link } from "react-router-dom";
 // import Dropdown from 'react-bootstrap/Dropdown';
+import { Button, Dropdown, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 const Layout = () => {
   return (
     <>
-      {/* <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"> */}
-      <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-        {/* <a className="navbar-brand" href="#">Navbar</a> */}
-        <Link className="navbar-brand" to="/">Chat GPT</Link>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/blogs">Blogs</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/contact">Contact</Link>
-          </li>
-          {/* <!-- Dropdown --> */}
-          <li className="nav-item dropdown">
-            <Link className="nav-link dropdown-toggle" href="#/" id="navbardrop" data-toggle="dropdown">
-              Dropdown link
-            </Link>
-            <div className="dropdown-menu">
-              <Link className="dropdown-item" href="#/action-1">Action 1</Link>
-              <Link className="dropdown-item" href="#/action-2">Action 2</Link>
-              <Link className="dropdown-item" href="#/action-3">Action 3</Link>
-            </div>
-          </li>
-        </ul>
-      </nav>
-
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="/">Chat GPT</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Chat</Nav.Link>
+            <Nav.Link href="/blogs">Blogs</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link href="/users">Users</Nav.Link>
+            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/">Action</NavDropdown.Item>
+              <NavDropdown.Item href="/blogs">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="/contact">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/users">Separated link</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              Dank memes
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
       <Outlet />
     </>
   )
