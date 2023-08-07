@@ -6,6 +6,8 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Users from "./pages/Users";
+import FileUpload from "./pages/FileUpload";
+import FileDownload from "./pages/FileDownload";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="users" element={<Users />} />
+          <Route path="fileupload" element={<FileUpload />} />
+          <Route path="filedownload" element={<FileDownload />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
