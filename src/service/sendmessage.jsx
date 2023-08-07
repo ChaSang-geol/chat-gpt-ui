@@ -48,7 +48,7 @@ const handleSubmitApi = async ({prompt, userid, callback}) => {
       prompt: prompt,
       userid: userid,
     });
-    let varrestime = dayjs().format("h:mm A");
+    let varrestime = dayjs().format("h:mm:ss A");
     
     console.log(response);
 

@@ -15,12 +15,16 @@ const UseCallbackApp = () => {
 
   return (
     <>
-      <Todos todos={todos} addTodo={addTodo} />
-      <hr />
-      <div>
-        Count: {count}
-        <button onClick={increment}>+</button>
-      </div>
+      <main role="main">
+        <div className="container">
+          <Todos todos={todos} addTodo={addTodo} />
+          <hr />
+          <div>
+            Count: {count}
+            <button onClick={increment}>+</button>
+          </div>
+        </div>
+      </main>
     </>
   );
 };
