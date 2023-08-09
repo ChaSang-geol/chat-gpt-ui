@@ -1,19 +1,41 @@
 import { useState, useCallback, useEffect, useRef } from "react";
+import axios from "axios";
+import * as fs from 'node:fs/promises';
 
 const FileInput = () => {
-// Add the following code if you want the name of the file appear on select
-$(".custom-file-input").on("change", function() {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-});
 
+  const handleSubmit = async() => {
+
+    var fs = require('fs');
+    
+    let headersList = {
+     "Authorization": "Bearer predefinedMyApiKey" 
+    }
+    let uploadFileName = document.getElementById("uploadFile").value;
+    let formdata = new FormData();
+    // formdata.append("file", fs.createReadStream("c:\workspace\chat-gpt-ui\public\logo512.png"));
+    formdata.append("file", fs.createReadStream(uploadFileName));
+    
+    let bodyContent =  formdata;
+    
+    let reqOptions = {
+      url: "http://hunihome.ipdisk.co.kr:8080/api/files/upload",
+      method: "POST",
+      headers: headersList,
+      data: bodyContent,
+    }
+    
+    let response = await axios.request(reqOptions);
+    console.log(response.data);
+  };
+  
 
 return (
   <>
     <form>
       <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile" />
-        <label class="custom-file-label" for="customFile">Choose file</label>
+        <input type="file" class="custom-file-input" id="uploadFile" />
+        <label class="custom-file-label" for="uploadFile">Choose file</label>
       </div>
     </form>
   </>
