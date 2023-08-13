@@ -4,10 +4,10 @@ import FileDownload from "../components/Blogs/FileDownload";
 const FileDownloadMain = () => {
   return (
     <>
-      <div>
+      <div className="container">
         <h1>FileDownload</h1>
+        <div><FileDownload /></div>
       </div>
-      <div><FileDownload /></div>
     </>
   );
 };

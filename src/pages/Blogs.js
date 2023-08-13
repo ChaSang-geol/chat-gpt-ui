@@ -4,31 +4,31 @@ const Blogs = () => {
       <main role="main">
 
         {/* <!-- Main jumbotron for a primary marketing message or call to action --> */}
-        <div class="jumbotron">
-          <div class="">
-            <h1 class="display-3">Hello, world!</h1>
+        <div className="jumbotron">
+          <div className="">
+            <h1 className="display-3">Hello, world!</h1>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
           </div>
         </div>
 
-        <div class="container">
+        <div className="container">
           {/* <!-- Example row of columns --> */}
-          <div class="row">
-            <div class="col-md-4">
+          <div className="row">
+            <div className="col-md-4">
               <h2>Heading</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="/filedownload" role="button">goto Download &raquo;</a></p>
+              <p><a className="btn btn-secondary" href="/filedownload" role="button">goto Download &raquo;</a></p>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               <h2>Heading</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="/fileupload" role="button">goto Upload &raquo;</a></p>
+              <p><a className="btn btn-secondary" href="/fileupload" role="button">goto Upload &raquo;</a></p>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               <h2>Heading</h2>
               <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+              <p><a className="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
             </div>
           </div>
 
@@ -38,7 +38,7 @@ const Blogs = () => {
 
       </main>
 
-      <footer class="container">
+      <footer className="container">
         <p>&copy; Company 2017-2020</p>
       </footer>
     </>
