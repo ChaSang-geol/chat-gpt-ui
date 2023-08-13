@@ -33,7 +33,6 @@ function FileUploadPage() {
       .catch((error) => {
         console.error("Error:", error);
       });
-    setSelectedFile("");
   };
 
   return (
