@@ -12,7 +12,7 @@ function FileUploadPage() {
   const headersList = {
     // "Content-Type": "multipart/form-data",
     "Access-Control-Allow-Origin": "*",
-    "Authorization": "Bearer predefinedMyApiKey",
+    Authorization: "Bearer predefinedMyApiKey",
   };
 
   const handleSubmission = () => {
@@ -33,7 +33,7 @@ function FileUploadPage() {
       .catch((error) => {
         console.error("Error:", error);
       });
-      setSelectedFile("");
+    setSelectedFile("");
   };
 
   return (
