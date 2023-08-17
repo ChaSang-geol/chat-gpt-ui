@@ -9,7 +9,7 @@ const FileInput = () => {
     let headersList = {
       // "Content-Type": "multipart/form-data", // multipart 로 하면 단일 파일은 업로드 안됨
       "Access-Control-Allow-Origin": "*",
-      "Authorization": "Bearer predefinedMyApiKey",
+      Authorization: "Bearer predefinedMyApiKey",
     };
     // let uploadFileName = document.getElementById("uploadFile").value;
     const inputFileUpload = document.querySelector("#uploadFile");
@@ -25,19 +25,20 @@ const FileInput = () => {
       method: "POST",
       data: bodyContent,
     })
-    // .then((response) => {
-    //   inputFileUpload.value = "";
-    //   console.log(response.data);
-    //   alert(response.data);
-    // });
-    .then((response) => response.json())
+      // .then((response) => {
+      //   inputFileUpload.value = "";
+      //   console.log(response.data);
+      //   alert(response.data);
+      // });
+      // .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result);
+        if (result.status === "200") console.log("DATA:", result.data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-      inputFileUpload.value = "";
+    inputFileUpload.value = "";
     // Location.href("/upload");
   };
 
@@ -61,11 +62,16 @@ const FileInput = () => {
               placeholder="업로드할 파일을 선택하십시오."
             />
             <label className="custom-file-label" htmlFor="uploadFile">
-            업로드할 파일을 선택하십시오.
+              업로드할 파일을 선택하십시오.
             </label>
           </div>
           <div className="input-group-append">
-            <button className="btn btn-success" type="button" id="button-addon2" onClick={handleSubmit}>
+            <button
+              className="btn btn-success"
+              type="button"
+              id="button-addon2"
+              onClick={handleSubmit}
+            >
               Upload
             </button>
           </div>
@@ -83,7 +89,11 @@ const FileInput = () => {
             </label>
           </div>
           <div className="input-group-append">
-            <button className="btn btn-outline-primary" type="button" onClick={handleSubmit}>
+            <button
+              className="btn btn-outline-primary"
+              type="button"
+              onClick={handleSubmit}
+            >
               업로드 하기
             </button>
           </div>
