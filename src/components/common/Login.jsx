@@ -1,5 +1,4 @@
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import bootstrap from "bootstrap";
 
 function Popup({ message, title, callback }) {
   // 모달 객체 생성

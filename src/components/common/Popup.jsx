@@ -1,3 +1,4 @@
+import bootstrap from "bootstrap";
 
 function Popup({ message, title, callback }) {
   // 모달 객체 생성
